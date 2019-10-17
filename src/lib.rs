@@ -2,7 +2,7 @@ extern crate libc;
 #[cfg(windows)]
 extern crate winapi;
 
-use libc::c_char;
+use libc::{c_char, c_uint};
 use std::ffi::CStr;
 use std::io::Read;
 
@@ -59,4 +59,10 @@ pub fn tu_clear() {
 #[cfg(not(windows))]
 pub fn tu_clear() {
     print!("\x1B[2J");
+}
+
+#[no_mangle]
+pub fn tu_sleep(millis: c_uint) {
+    use std::{thread, time};
+    thread::sleep(time::Duration::from_millis(millis.into()));
 }
