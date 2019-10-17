@@ -40,11 +40,11 @@ pub fn tu_clear() {
             };
             let mut _chars_written = 0;
             let mut console_info = CONSOLE_SCREEN_BUFFER_INFO {
-                dwSize: COORD { X: 0, Y: 0},
-                dwCursorPosition: COORD { X: 0, Y: 0},
+                dwSize: COORD { X: 0, Y: 0 },
+                dwCursorPosition: COORD { X: 0, Y: 0 },
                 wAttributes: 0,
                 srWindow: SMALL_RECT { Left: 0, Top: 0, Right: 0, Bottom: 0 },
-                dwMaximumWindowSize: COORD { X: 0, Y: 0},
+                dwMaximumWindowSize: COORD { X: 0, Y: 0 },
             };
             GetConsoleScreenBufferInfo(handle_stdout, &mut console_info);
             FillConsoleOutputCharacterA(handle_stdout, ' ' as i8,
